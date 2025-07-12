@@ -28,6 +28,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')), # 'api/'というパスでapiアプリのURLを読み込む
+    # 'api/salary-data/'のパスを先に記述
     path('api/salary-data/', SalaryDataView.as_view(), name='salary-data-api'),
+    # その他のAPIパスを読み込む
+    path('api/', include('api.urls')),
 ]
